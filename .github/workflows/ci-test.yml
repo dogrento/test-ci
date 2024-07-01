@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Create issue from pull_request
-        uses: vitorsavian/create-issue-form-pr@v2.0
+        uses: vitorsavian/create-issue-from-pr@v2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: |
