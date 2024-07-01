@@ -1,0 +1,24 @@
+name: "CI test"
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  create-issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - name: Create issue from pull_request
+        uses: vitorsavian/create-issue-form-pr@v2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: |
+            ${{ github.event.pull_request.title }}
+          body: |
+            ${{ github.event.pull_request.body }}
+          repo: test-ci
+          org: TestCIKek
+          user: ${{ github.event.pull_request.user.login }}
